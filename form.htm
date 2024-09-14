@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form with Comma Separation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button.delete {
+            background-color: #dc3545;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #e9ecef;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dynamic Form</h1>
+        <input type="text" id="userInput" placeholder="Enter items separated by commas (e.g., banana, apple)">
+        <br>
+        <button onclick="addItems()">Add</button>
+        <button class="delete" onclick="deleteItems()">Delete</button>
+        
+        <ul id="itemList"></ul>
+    </div>
+
+    <script>
+        // Add items to the list based on comma-separated input
+        function addItems() {
+            const input = document.getElementById('userInput');
+            const value = input.value;
+
+            if (value.trim() !== "") {
+                const items = value.split(',');  // Split input by commas
+                const ul = document.getElementById('itemList');
+                
+                items.forEach(item => {
+                    const trimmedItem = item.trim();  // Remove extra spaces around each item
+                    if (trimmedItem) {  // Avoid adding empty items
+                        const li = document.createElement('li');
+                        li.textContent = trimmedItem;
+                        ul.appendChild(li);
+                    }
+                });
+
+                // Clear input field
+                input.value = "";
+            } else {
+                alert("Please enter a valid input.");
+            }
+        }
+
+        // Delete all items from the list
+        function deleteItems() {
+            const ul = document.getElementById('itemList');
+            ul.innerHTML = '';
+        }
+
+        // Ensure the page loads before interacting with the DOM
+        window.onload = function() {
+            document.getElementById('userInput').focus();
+        };
+    </script>
+
+</body>
+</html>
