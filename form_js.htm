@@ -101,7 +101,7 @@
 
           <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" id="checkout-form" novalidate>
               <div class="row g-3">
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">First name</label>
@@ -295,6 +295,7 @@
                   <label for="cc-name" class="form-label">Name on card</label>
                   <input
                     type="text"
+                   
                     class="form-control"
                     id="cc-name"
                     placeholder=""
@@ -318,7 +319,7 @@
                     required
                   />
                   <div class="invalid-feedback">
-                    Credit card number is required
+                    Credit card number is required.
                   </div>
                 </div>
 
@@ -347,51 +348,63 @@
                   />
                   <div class="invalid-feedback">Security code required</div>
                 </div>
-                <div>
-                <label for="payment-date" class="form-label">Payment date</label>
-                <input
-                 type="date"
-                 class="form-control"
-                 id="payment-date"
-                 placeholder=""
-                 required>
+
+                <div class="col-md-6">
+                  <label for="payment-date" class="form-label">Payment date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="payment-date"
+                    required
+                  />
+                  <div class="invalid-feedback">Payment date is required</div>
                 </div>
-                <div>
+
+                <div class="col-md-12">
                   <label for="feedback" class="form-label">Feedback</label>
-                  <textarea class="form-control"
+                  <textarea
+                    class="form-control"
+                    id="feedback"
+                    placeholder="Enter your feedback here"
+                    rows="3"
                   ></textarea>
                 </div>
               </div>
-
-             
 
               <hr class="my-4" />
 
               <button class="w-100 btn btn-primary btn-lg" type="submit">
                 Continue to checkout
               </button>
-              <br><br><br>
             </form>
           </div>
         </div>
       </main>
     </div>
+
+    <script>
+      (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            'submit',
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+
+              form.classList.add('was-validated')
+            },
+            false
+          )
+        })
+      })()
+    </script>
   </body>
 </html>
-
-<script>
-    (function () {
-      'use strict'
-
-      const form = document.getElementById('checkout-form');
-
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity() || !validateDate()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-
-        form.classList.add('was-validated');
-      }, false);
-    })();
-  </script>
