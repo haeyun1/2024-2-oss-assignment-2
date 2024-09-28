@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Record</title>
+    <link rel="stylesheet" href="my.css">
+    <style>
+        
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        const studentData = {
+            "22300697": {
+                id: "22300697",
+                name: "정해윤",
+                birth: "2004-10-20",
+                gender: "Female",
+                major1: "컴퓨터공학심화",
+                major2: "AI"
+            }
+        };
+
+        function getUrlParam(paramName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(paramName);
+        }
+
+        function loadStudentData() {
+            const studentId = getUrlParam("studentId");
+
+            if (studentData[studentId]) {
+                const student = studentData[studentId];
+                document.getElementById("stdid").value = student.id;
+                document.getElementById("stdname").value = student.name;
+                document.getElementById("stdbirth").value = student.birth;
+                document.getElementById("stdgender").value = student.gender;
+                document.getElementById("stdmajor1").value = student.major1;
+                document.getElementById("stdmajor2").value = student.major2 || "";
+            } else {
+                alert("Student not found!");
+            }
+        }
+
+        function confirmEdit(event) {
+            event.preventDefault(); 
+
+            const confirmation = confirm("Do you want to edit this item?");
+            if (confirmation) {
+                alert("Item edited!");
+                window.location.href = 'index.html';
+            }
+        }
+
+        function validateForm() {
+            const id = document.getElementById("stdid").value;
+            const name = document.getElementById("stdname").value;
+            const birth = document.getElementById("stdbirth").value;
+            const major1 = document.getElementById("stdmajor1").value;
+
+            if (!id || !name || !birth || !major1) {
+                alert("All required fields must be filled out.");
+                return false;
+            }
+            return true;
+        }
+
+        function cancelEdit() {
+            window.location.href = 'index.html';
+        }
+
+        window.onload = loadStudentData;
+    </script>
+</head>
+<body>
+    <h1>Edit Record</h1>
+
+    <form onsubmit="if(validateForm()) confirmEdit(event);">
+        <div>
+            <label for="stdid">Student ID</label>
+            <input
+                type="text"
+                id="stdid"
+                name="stdid"
+                readonly
+            />
+        </div>
+        <div>
+            <label for="stdname">Name</label>
+            <input
+                type="text"
+                id="stdname"
+                name="stdname"
+                required
+            />
+        </div>
+        <div>
+            <label for="stdbirth">Birthday</label>
+            <input
+                type="date"
+                id="stdbirth"
+                name="stdbirth"
+                required
+            />
+        </div>
+        <div>
+            <label for="stdgender">Gender</label>
+            <select id="stdgender" name="stdgender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div>
+            <label for="stdmajor1">Major 1</label>
+            <input
+                type="text"
+                id="stdmajor1"
+                name="stdmajor1"
+                required
+            />
+        </div>
+        <div>
+            <label for="stdmajor2">Major 2</label>
+            <input
+                type="text"
+                id="stdmajor2"
+                name="stdmajor2"
+            />
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="cancelEdit()">Cancel</button>
+        </div>
+    </form>
+</body>
+</html>
