@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label, input, button, select {
+            display: block;
+            margin: 10px 0;
+        }
+        input, select {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #student-list {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .student-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Management</h1>
+    
+    <div id="student-list"></div>
+
+    <form id="student-form">
+        <input type="number" id="id" placeholder="학번" required>
+        <input type="text" id="name" placeholder="이름" required>
+        <input type="date" id="birth" required>
+        <select id="gender" required>
+            <option value="" disabled selected>성별</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+        </select>
+        <input type="text" id="major1" placeholder="1 전공" required>
+        <input type="text" id="major2" placeholder="2 전공" required>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <form id="student-update-form">
+        <input type="number" id="update-id" placeholder="학번" required>
+        <input type="text" id="update-name" placeholder="이름" required>
+        <input type="date" id="update-birth" required>
+        <select id="update-gender" required>
+            <option value="" disabled selected>성별</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+        </select>
+        <input type="text" id="update-major1" placeholder="1 전공" required>
+        <input type="text" id="update-major2" placeholder="2 전공" required>
+        <button type="submit">Update Student</button>
+    </form>
+    
+    <form id="student-delete-form">
+        <input type="number" id="delete-id" placeholder="Student ID" required>
+        <button type="submit">Delete Student</button>
+    </form>
+
+    <script src="app.js"></script>
+</body>
+</html>

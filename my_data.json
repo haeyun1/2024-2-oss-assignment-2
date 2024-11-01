@@ -1,0 +1,84 @@
+{
+  "student": [
+    {
+      "id": "22300697",
+      "name": "정해윤",
+      "birth": "2004-10-20",
+      "gender": "female",
+      "major1": "컴퓨터공학심화",
+      "major2": "None"
+    },
+    {
+      "name": "0",
+      "birth": "2024-11-12",
+      "gender": "female",
+      "major1": "d",
+      "major2": "d",
+      "id": "0"
+    },
+    {
+        "id": "1",
+        "name": "a",
+        "birth": "2004-10-20",
+        "gender": "female",
+        "major1": "컴퓨터공학심화",
+        "major2": "None"
+      },
+      {
+        "id": "2",
+        "name": "s",
+        "birth": "2004-10-20",
+        "gender": "female",
+        "major1": "컴퓨터공학심화",
+        "major2": "None"
+      },
+      {
+        "id": "3",
+        "name": "d",
+        "birth": "2004-10-20",
+        "gender": "female",
+        "major1": "컴퓨터공학심화",
+        "major2": "None"
+      },
+      {
+        "id": "4",
+        "name": "f",
+        "birth": "2004-10-20",
+        "gender": "female",
+        "major1": "컴퓨터공학심화",
+        "major2": "None"
+      },
+      {
+        "id": "5",
+        "name": "g",
+        "birth": "2004-10-20",
+        "gender": "female",
+        "major1": "컴퓨터공학심화",
+        "major2": "None"
+      },
+      {
+        "id": "6",
+        "name": "h",
+        "birth": "2004-10-20",
+        "gender": "female",
+        "major1": "컴퓨터공학심화",
+        "major2": "None"
+      },
+      {
+        "id": "7",
+        "name": "j",
+        "birth": "2004-10-20",
+        "gender": "female",
+        "major1": "컴퓨터공학심화",
+        "major2": "None"
+      },
+      {
+        "id": "8",
+        "name": "k",
+        "birth": "2004-10-20",
+        "gender": "female",
+        "major1": "컴퓨터공학심화",
+        "major2": "None"
+      }
+  ]
+}
